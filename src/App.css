@@ -5,4 +5,68 @@ body {
 h5 {
   font-family: "Lobster", cursive;
 }
+.card-img-overlay h5 {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.jumbotron {
+  padding: 30px;
+  background-image: linear-gradient(to right, #F7F9FF,#2bc8e4e5,#F7F9FF);
+  color: white;
+  margin: 0px;
+  max-height: fit-content; 
 
+}
+.jumbotron h2  {
+  color: black;
+}
+.jumbotron h1  {
+  color: crimson;
+}
+footer {
+  background-image: linear-gradient(#c8ffe5, rgb(204, 134, 134));
+  padding: 20px 0;
+}
+.navbar-dark {
+  background:crimson;
+  margin-bottom: 20px;
+  border-bottom: 3px solid crimson;
+}
+.form-cont
+{
+     margin-top: 9px;
+     margin-left: 30px;
+     border: 1px solid crimson!important;
+     border-top-left-radius: 20px!important;
+     border-bottom-left-radius: 20px!important;
+     border-top-right-radius:0 !important;
+     border-bottom-right-radius: 0!important;
+     box-shadow: none!important;
+
+}
+
+.input-group-text
+ {
+     background: crimson!important;
+     border: 1px solid crimson!important;
+     margin: 8.5px 10px 3px 0!important;
+     border-top-left-radius: 0px!important;
+     border-bottom-left-radius: 0px!important;
+     border-top-right-radius:20 !important;
+     border-bottom-right-radius: 20!important;
+     box-shadow: none!important;
+     cursor: pointer;
+ }
+ .search-box
+ {
+      display:inline-flex;
+      width: 50%;
+ }
+ .fa-search
+  {
+     color:#fff;
+ }
+ .navbar-text Button
+ {
+   background-color:burlywood;
+ }
