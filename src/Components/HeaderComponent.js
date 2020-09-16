@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron ,Button, Modal, ModalHeader, ModalBody,
     Form, FormGroup, Input, Label  } from 'reactstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink , Link} from 'react-router-dom';
 
 
 class Header extends Component {
@@ -79,7 +79,7 @@ class Header extends Component {
                              </div>
                              <span className="navbar-text ml-auto">
                                 <Button outline >
-                            <a href="cart.html"><i className="fa fa-shopping-basket" aria-hidden="true"></i>Cart<span>0</span></a>
+                            <Link to='/cart.html'><i className="fa fa-shopping-basket" aria-hidden="true"></i>Cart<span>0</span></Link>
                                 </Button>
                             </span>
                         <span className="navbar-text ml-auto">

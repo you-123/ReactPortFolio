@@ -56,7 +56,7 @@ export const PRODUCTS = [
         brand:"Y-cool"        ,
         catgory:"art"       ,
         rateCount: 5      ,
-        featured: false,
+        featured: true,
         ProductDescription: " The Morning time readiness for a new day."
     },
      {
