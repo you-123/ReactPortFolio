@@ -261,22 +261,7 @@ footer {
               
               }
 
-.featured-categories
-{ 
-    margin: 80px 0;
-}
-.featured-categories CardImg
-{
-    width: 100%;
-    height:  400px;
-    padding: 20px 0;
-    transition: 1s;
-    cursor: pointer;
-}
-.featured-categories CardImg:hover 
-{
-    transform:scale(1.1);
-}
+
 /*------------on sale products css-------*/  
 .title-box
 {
@@ -365,3 +350,127 @@ footer {
    padding-bottom: 10px;
 
 }
+/*---------------single product--------------------*/
+.single-product
+{
+  margin-top: 70px;
+
+}
+.new-arrival
+{
+    background: green;
+    width: 50px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.col-md-7 h2
+{
+   color:#555
+}
+.single-product  .fa
+{
+  color:crimson;
+
+}
+.single-product  .price
+{
+  color: rgb(113, 20, 220);
+  font-size: 26px;
+  font-weight:bold ;
+  padding-top: 20px;
+
+}
+.single-product  input
+{
+    border: 1px solid #ccc;
+    font-weight:italic;
+    height: 33px;
+    text-align: center;
+    width: 35px;
+}
+.single-product .btn-primary  
+{
+    background:crimson !important;
+    color:#fff;
+    font-size: 15px;
+    margin-left: 20px;
+    border: none;
+    box-shadow: none !important;
+}
+/*------------------CART PAGE--------------------*/
+
+.products-header
+{
+    background:crimson !important;
+    color:#fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 4px solid lightgray;
+    margin: 0 auto;
+
+}
+
+
+
+
+.products
+{   
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.products img
+{
+   margin-left: 20px;
+   margin-right: 20px;
+  width: 75px;
+  height: 75px;
+  overflow: hidden;
+     
+}
+
+.basketTotalContainer
+{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 10px 0;
+}
+.basketTotalTitle
+{
+    width: 40%;
+}
+.basketTotal
+{
+    width: 15%;
+
+}
+.remove-from-cart 
+{
+  background:crimson !important;
+  color:#fff;
+  font-size: 15px;
+  margin-left: 20px;
+  border: none;
+  box-shadow: none !important;
+}
+.cheackOut
+{
+  background:crimson !important;
+  color:#fff;
+  font-size: 15px;
+  margin-left: 20px;
+  border: none;
+  box-shadow: none !important;
+}
+.add-from-wish-to-cart 
+{ background:crimson !important;
+  color:#fff;
+  font-size: 15px;
+  margin-left: 20px;
+  border: none;
+  box-shadow: none !important;}

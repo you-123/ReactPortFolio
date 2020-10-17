@@ -1,24 +1,24 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 function Menu(props) {
     const  CatgoryFashion= props.Item.filter(item=>item.catgory==="fashion");
     const  CatgoryTechnology= props.Item.filter(item=>item.catgory==="technology");
     const  CatgoryArt= props.Item.filter(item=>item.catgory==="art");
     const Fashion=CatgoryFashion.map(item => {
         return (
-                    <li key={item.id}>{item.name}</li>   
+            <Link to={`/catalog/${item.id}`}> <li key={item.id}>{item.name}</li> </Link>    
         );});
       
  const Technology=CatgoryTechnology.map(item => {
             return (
 
-                        <li key={item.id}>{item.name}</li>   
+                <Link to={`/catalog/${item.id}`}> <li key={item.id}>{item.name}</li> </Link>    
             );});
     
 const   Art=CatgoryArt.map(item => {
                 return (
     
-                            <li key={item.id}>{item.name}</li>   
+                    <Link to={`/catalog/${item.id}`}> <li key={item.id}>{item.name}</li> </Link>       
                 );});
 
     return (

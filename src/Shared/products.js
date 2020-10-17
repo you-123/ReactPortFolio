@@ -2,6 +2,7 @@ export const PRODUCTS = [
     {
         id: 0,
         name: "Flowery",
+        tag: "artculsmall0",
         image: "/assets/images/artculsmall0.jpg",
         price:20 ,
         productCode:"Y-001" ,
@@ -12,11 +13,13 @@ export const PRODUCTS = [
         catgory:"Art"       ,
         rateCount:5      ,
         featured: false,
-        ProductDescription: "Home Decore clothing multi purpose."
+        ProductDescription: "Home Decore clothing multi purpose.",
+        inCart: 0
     },
      {
         id: 1,
         name: "Idea&Art",
+        tag: "artculsmall1",
         image: "/assets/images/artculsmall1.jpg",
         price:25 ,
         productCode:"Y-002" ,
@@ -27,11 +30,13 @@ export const PRODUCTS = [
         catgory:"Art"       ,
         rateCount:5       ,
         featured: false,
-        ProductDescription: "The book give the redear more idea and art view."
+        ProductDescription: "The book give the redear more idea and art view.",
+        inCart: 0
     },
    {
         id: 3,
         name: "Silent Life",
+        tag: "artculsmall2",
         image: "/assets/images/artculsmall2.jpg",
         price:15 ,
         productCode:"Y-003" ,
@@ -42,11 +47,13 @@ export const PRODUCTS = [
         catgory:"art"       ,
         rateCount: 4      ,
         featured: true,
-        ProductDescription: "These potograpic  Picture tells what you see Memories for some one."
+        ProductDescription: "These potograpic  Picture tells what you see Memories for some one.",
+        inCart: 0
     },
      {
         id: 4,
         name: "Ready mood ",
+        tag: "artmid4",
         image: "/assets/images/artmid4.jpg",
         price: 20,
         productCode:"Y-004" ,
@@ -57,11 +64,13 @@ export const PRODUCTS = [
         catgory:"art"       ,
         rateCount: 5      ,
         featured: true,
-        ProductDescription: " The Morning time readiness for a new day."
+        ProductDescription: " The Morning time readiness for a new day.",
+        inCart: 0
     },
      {
         id: 5,
         name: "CameraMega",
+        tag: "technologylmid1",
         image: "/assets/images/technologylmid1.jpg",
         price:3500 ,
         productCode:"Y-005" ,
@@ -72,12 +81,14 @@ export const PRODUCTS = [
         catgory:"technology"       ,
         rateCount:5      ,
         featured: false,
-        ProductDescription: "If you like shooting picture the from any distance."
+        ProductDescription: "If you like shooting picture the from any distance.",
+        inCart: 0
     }
 ,
      {
         id: 6,
         name: "MacBook",
+        tag: "technologymid0",
         image: "/assets/images/technologymid0.jpg",
         price:2000 ,
         productCode:"Y-006" ,
@@ -88,12 +99,14 @@ export const PRODUCTS = [
         catgory:"technology"       ,
         rateCount:5       ,
         featured: false,
-        ProductDescription: "2.6GHz 6‑core Nth‑generation Intel Core i7 processor, Turbo Boost up to 4.5GHz."
+        ProductDescription: "2.6GHz 6‑core Nth‑generation Intel Core i7 processor, Turbo Boost up to 4.5GHz.",
+        inCart: 0
     }
 ,
      {
         id: 7,
         name: "Pc-monitor",
+        tag: "technologymid2",
         image: "/assets/images/technologymid2.jpg",
         price:600 ,
         productCode:"Y-007" ,
@@ -104,12 +117,14 @@ export const PRODUCTS = [
         catgory:"technology"       ,
         rateCount:5       ,
         featured: false,
-        ProductDescription: "A computer monitor is an output device that displays information in pictorial form. A monitor usually comprises the visual display, circuitry, casing, and power supply."
+        ProductDescription: "A computer monitor is an output device that displays information in pictorial form. A monitor usually comprises the visual display, circuitry, casing, and power supply.",
+        inCart: 0
     }
 ,
      {
         id: 8,
         name: "Pc-surf",
+        tag: "technologymid4",
         image: "/assets/images/technologymid4.jpg",
         price:1000 ,
         productCode:"Y-008" ,
@@ -120,12 +135,14 @@ export const PRODUCTS = [
         catgory:"technology"       ,
         rateCount:5      ,
         featured: true,
-        ProductDescription: "2.6GHz 6‑core Nth‑generation Intel Core i7 processor."
+        ProductDescription: "2.6GHz 6‑core Nth‑generation Intel Core i7 processor.",
+        inCart: 0
     }
 ,
      {
         id: 9,
         name: "Wsporty",
+        tag: "fashionsmall0",
         image: "/assets/images/fashionsmall0.jpg",
         price:45 ,
         productCode:"Y-009" ,
@@ -136,12 +153,14 @@ export const PRODUCTS = [
         catgory:"fashion"       ,
         rateCount:5       ,
         featured: false,
-        ProductDescription: "simple and give body flexblity for any movment."
+        ProductDescription: "simple and give body flexblity for any movment.",
+        inCart: 0
     }
 ,
      {
         id: 10,
         name: "MenCombination",
+        tag: "fashionsmall1",
         image: "/assets/images/fashionsmall1.jpg",
         price:400,
         productCode:"Y-010" ,
@@ -152,12 +171,14 @@ export const PRODUCTS = [
         catgory:"fashion"       ,
         rateCount:5       ,
         featured: false,
-        ProductDescription: "They All fit together Stylesh."
+        ProductDescription: "They All fit together Stylesh.",
+        inCart: 0
     }
 ,
      {
         id: 11,
         name: "coolish",
+        tag: "artculsmall2",
         image: "/assets/images/fashionsmall2.jpg",
         price:25 ,
         productCode:"Y-011" ,
@@ -168,12 +189,14 @@ export const PRODUCTS = [
         catgory:"fashion"       ,
         rateCount:5       ,
         featured: false,
-        ProductDescription: "Its for windy fall time as well as for biggning of winter."
+        ProductDescription: "Its for windy fall time as well as for biggning of winter.",
+        inCart: 0
     }
 ,
      {
         id: 12,
         name: "sunny",
+        tag: "/fashionsmall3",
         image: "/assets/images/fashionsmall3.jpg",
         price:60 ,
         productCode:"Y-012" ,
@@ -184,12 +207,14 @@ export const PRODUCTS = [
         catgory:"fashion"       ,
         rateCount:5       ,
         featured: false,
-        ProductDescription: "It looks good wearing spending time at sea shore or for walking at any road"
+        ProductDescription: "It looks good wearing spending time at sea shore or for walking at any road",
+        inCart: 0
     }
 ,
      {
         id: 13,
         name: "wave",
+        tag: "fashionmid4",
         image: "/assets/images/fashionmid4.jpg",
         price:50 ,
         productCode:"Y-13" ,
@@ -200,6 +225,7 @@ export const PRODUCTS = [
         catgory:"fashion"       ,
         rateCount:5       ,
         featured: true,
-        ProductDescription: "easybeasybest"
+        ProductDescription: "easybeasybest",
+        inCart: 0
     }
 ];

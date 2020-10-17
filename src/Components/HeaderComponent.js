@@ -1,21 +1,39 @@
-import React, { Component }  from 'react';
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron ,Button, Modal, ModalHeader, ModalBody,
-    Form, FormGroup, Input, Label  } from 'reactstrap';
-import { NavLink , Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import {
+    Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron, Button, Modal, ModalHeader, ModalBody,
+    Form, FormGroup, Input, Label
+} from 'reactstrap';
+import { NavLink, Link } from 'react-router-dom';
+import { useStateValue } from '../StateProvider';
+
+function RenderHeader(props) {
+    const [{ basket }, dispatch] = useStateValue();
+    return (<React.Fragment>   <span className="navbar-text ml-auto">
+        <div className="menu-bar">
+            <Button outline >
+                <Link to='/cart'><i className="fa fa-shopping-basket" aria-hidden="true"></i>Cart<span>{basket?.length}</span></Link>
+            </Button>
+        </div>
+    </span></React.Fragment>);
 
 
+}
+//
 class Header extends Component {
     constructor(props) {
         super(props);
 
-       
+
         this.state = {
-          isNavOpen: false,
-          isModalOpen: false
+
+            isNavOpen: false,
+            isModalOpen: false
         };
-             this.toggleNav = this.toggleNav.bind(this);
-            this.toggleModal = this.toggleModal.bind(this);
-            this.handleLogin = this.handleLogin.bind(this);
+        this.toggleNav = this.toggleNav.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
+
+
     }
 
     toggleNav() {
@@ -33,56 +51,52 @@ class Header extends Component {
         this.toggleModal();
         event.preventDefault();
     }
+
+
     render() {
+
         return (
             <React.Fragment>
-    <Jumbotron fluid>
-    <div className="container">
-        <div className="row">
-        <div className="col">
-          <h1>XYZ Is A Shopping Way</h1>
-          <h2> Stay On Updates </h2>
-          </div>
-         </div>
-         </div>
-     </Jumbotron>
-     <Navbar dark sticky="top" expand="md">
-                <div className="container">
-                    <NavbarBrand className="mr-auto" href="/"><img src="/assets/images/logo.png" height="30" width="30" alt="XYZ Logo" /></NavbarBrand>
-                    <NavbarToggler onClick={this.toggleNav} />
-                    <Collapse isOpen={this.state.isNavOpen} navbar>
-                        <Nav navbar>
-                            <NavItem>
-                                <NavLink className="nav-link " to="/home">
-                                    <i className="fa fa-home fa-lg" /> Home
+                <Jumbotron fluid>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col">
+                                <h1>XYZ Is A Shopping Way</h1>
+                                <h2> Stay On Updates </h2>
+                            </div>
+                        </div>
+                    </div>
+                </Jumbotron>
+
+                <Navbar dark sticky="top" expand="md">
+                    <div className="container">
+                        <NavbarBrand className="mr-auto" href="/"><img src="/assets/images/logo.png" height="30" width="30" alt="XYZ Logo" /></NavbarBrand>
+                        <NavbarToggler onClick={this.toggleNav} />
+                        <Collapse isOpen={this.state.isNavOpen} navbar>
+                            <Nav navbar>
+                                <NavItem>
+                                    <NavLink className="nav-link " to="/home">
+                                        <i className="fa fa-home fa-lg" /> Home
                                 </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="nav-link" to="/catalog">
-                                    <i className="fa fa-list fa-lg" /> Catalog
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/catalog">
+                                        <i className="fa fa-list fa-lg" /> Catalog
                                 </NavLink>
-                            </NavItem>
-                            {/* <NavItem>
-                                <NavLink className="nav-link" to="/aboutus">
-                                    <i className="fa fa-info fa-lg" /> About
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/wish">
+                                        <i className=" fa fa-heart-o fa-lg" /> WishList
                                 </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="nav-link" to="/contactus">
-                                  <span><i className="fa fa-address-card fa-lg" /> Contact Us</span>  
-                                </NavLink>
-                            </NavItem> */}
-                        </Nav>
-                        <div className="search-box">
-                        <Input type="text" className="form-cont"/>
-            <span className="input-group-text"><i className="fa fa-search" aria-hidden="true"></i></span>
-                             </div>
-                             <span className="navbar-text ml-auto">
-                                <Button outline >
-                            <Link to='/cart.html'><i className="fa fa-shopping-basket" aria-hidden="true"></i>Cart<span>0</span></Link>
-                                </Button>
-                            </span>
-                        <span className="navbar-text ml-auto">
+                                </NavItem>
+                            </Nav>
+                            <div className="search-box">
+                                <Input type="text" className="form-cont" />
+                                <span className="input-group-text"><i className="fa fa-search" aria-hidden="true"></i></span>
+                            </div>
+                            <RenderHeader />
+
+                            <span className="navbar-text ml-auto">
                                 <Button outline onClick={this.toggleModal}>
                                     <i className="fa fa-sign-in " /> Login
                                 </Button>
@@ -92,13 +106,13 @@ class Header extends Component {
                                     <i className="fa fa-user-plus " /> SignUp
                                 </Button>
                             </span>
-                    </Collapse>
-                </div>
-            </Navbar>
-            <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                        </Collapse>
+                    </div>
+                </Navbar>
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
                     <ModalBody>
-                    <Form onSubmit={this.handleLogin}>
+                        <Form onSubmit={this.handleLogin}>
                             <FormGroup>
                                 <Label htmlFor="username">Username</Label>
                                 <Input type="text" id="username" name="username"
@@ -120,9 +134,9 @@ class Header extends Component {
                         </Form>
                     </ModalBody>
                 </Modal>
-     </React.Fragment>   
-            );
-        }
+            </React.Fragment>
+        );
     }
-    
-    export default Header;
+}
+
+export default Header;
