@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardText, Breadcrumb, BreadcrumbItem, Button, Input } from 'reactstrap';
+import { CardText, Breadcrumb, BreadcrumbItem, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../StateProvider';
 function RenderItem({ Item }) {
@@ -26,7 +26,7 @@ function RenderItem({ Item }) {
           </div>
           <div className="col-md-3 m-1" >
             <h3  >{Item.name}</h3>
-            <h6 className="new-arrival" >{Item.condtion}</h6>
+            <h6 className="new-arrival" >{Item.condition}</h6>
             <h6> Avaliblity:{Item.avaliblity}</h6>
             <h6>Brand:{Item.brand}  </h6>
             <h6>Catgory:{Item.catgory}</h6>

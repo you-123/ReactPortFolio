@@ -3,25 +3,25 @@ import { UncontrolledCarousel } from 'reactstrap';
 const items = [
   {
     src:'/assets/carsolimge/fashionlarg3.jpg ',
-    altText: 'Slide ',
-    caption: 'Slide 1',
+    altText: 'Fashion ',
+    caption: 'Fashion ',
     header: 'Slide 1 Header',
     key: '1',
     style: '100%' 
     
   },
   {
-    src: '/assets/carsolimge/artcullcar1.jpg',
-    altText: 'Slide 2',
-    caption: 'Slide 2',
+    src: '/assets/carsolimge/technologymid2.jpg',
+    altText: 'Technology',
+    caption: 'Technology',
     header: 'Slide 2 Header',
     key: '2'
   
   },
   {
-    src: '/assets/carsolimge/artcullarge2.jpg',
-    altText: 'Slide 3',
-    caption: 'Slide 3',
+    src: '/assets/carsolimge/artcullcar1.jpg',
+    altText: 'Art',
+    caption: 'Art ',
     header: 'Slide 3 Header',
     key: '3'
   

@@ -4,7 +4,7 @@ import {useStateValue} from '../StateProvider';
 function OnSale(props) {
   let  [{basket},dispatch]=useStateValue();
     
-  const  InStock=props.Item.filter(item=>item.avaliblity==="InStock"  );
+  const  InStock=props.Item.filter(item=>item.availability===true );
   
   const   Onsale=InStock.map(item=>{
       

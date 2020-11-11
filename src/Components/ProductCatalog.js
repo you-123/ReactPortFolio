@@ -15,8 +15,8 @@ function RenderProductItem({Item}) {
 }
 
 function  Product(props) {
-
-    const catalog = props.Item.map(item => {
+    //const  {Item}=props;
+    const catalog =props.Item.map(item => {
         return (
             <div key={item.id} className="col-md-5 m-1">
                 <RenderProductItem Item={item} />  </div>

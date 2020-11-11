@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
     Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron, Button, Modal, ModalHeader, ModalBody,
-    Form, FormGroup, Input, Label
+    Form, FormGroup, Input, Label, FormFeedback
 } from 'reactstrap';
 import { NavLink, Link } from 'react-router-dom';
 import { useStateValue } from '../StateProvider';
@@ -27,12 +27,27 @@ class Header extends Component {
         this.state = {
 
             isNavOpen: false,
-            isModalOpen: false
+            isModalOpen: false,
+            isModalOpenSignUp: false,
+            firstName: '',
+            lastName: '',
+            userName: '',
+            password:'',
+            email: '',
+            touched: {
+                firstName: false,
+                lastName: false,
+                userName: false,
+                password:false,
+                email: false
+            }  
         };
         this.toggleNav = this.toggleNav.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
-
+        this.toggleModalSignUp = this.toggleModalSignUp.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
@@ -46,15 +61,82 @@ class Header extends Component {
             isModalOpen: !this.state.isModalOpen
         });
     }
+    toggleModalSignUp() {
+        this.setState({
+            isModalOpenSignUp: !this.state.isModalOpenSignUp
+        });
+    }
     handleLogin(event) {
-        alert(`Username: ${this.username.value} Password: ${this.password.value} Remember: ${this.remember.checked}`);
+        alert(`UserName: ${this.userName.value} Password: ${this.password.value} Remember: ${this.remember.checked}`);
         this.toggleModal();
         event.preventDefault();
+    }
+    
+    handleInputChange(event) {
+        const target = event.target;
+        const name = target.name;
+        const value =  target.value;
+        
+      
+        this.setState({
+            [name]: value
+        });
+     
+         event.preventDefault();
+    }
+
+    handleSubmit(event) {
+        console.log('Current state is: ' + JSON.stringify(this.state));
+        alert('Current state is: ' + JSON.stringify(this.state));
+        event.preventDefault();
+    }
+    validate(firstName, lastName,  userName, email) {
+
+        const errors = {
+            firstName: '',
+            lastName: '',
+            userName: '',
+            email: ''
+        };
+
+        if (this.state.touched.firstName) {
+            if (firstName.length < 2) {
+                errors.firstName = 'First name must be at least 2 characters.';
+            } else if (firstName.length > 15) {
+                errors.firstName = 'First name must be 15 or less characters.';
+            }
+        }
+
+        if (this.state.touched.lastName) {
+            if (lastName.length < 2) {
+                errors.lastName = 'Last name must be at least 2 characters.';
+            } else if (lastName.length > 15) {
+                errors.lastName = 'Last name must be 15 or less characters.';
+            }
+        }
+       
+           const regu = /^[A-Z0-9._]{2,4}$/i;
+           const  reg= /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+        if (this.state.touched.userName && !regu.test(userName)) {
+            errors.userName= 'The userName  should contain  Alpah numeric 2-4 only .';
+        }
+
+        if (this.state.touched.email && !reg.test(email)) {
+            errors.email = 'Invalid email address';
+        }
+
+        return errors;
+    }
+
+    handleBlur = (field) => () => {
+        this.setState({
+            touched: {...this.state.touched, [field]: true}
+        });
     }
 
 
     render() {
-
+        const errors = this.validate(this.state.firstName, this.state.lastName, this.state.userName, this.state.email);  
         return (
             <React.Fragment>
                 <Jumbotron fluid>
@@ -63,6 +145,7 @@ class Header extends Component {
                             <div className="col">
                                 <h1>XYZ Is A Shopping Way</h1>
                                 <h2> Stay On Updates </h2>
+                              
                             </div>
                         </div>
                     </div>
@@ -102,7 +185,7 @@ class Header extends Component {
                                 </Button>
                             </span>
                             <span className="navbar-text ml-auto">
-                                <Button outline >
+                                <Button outline onClick={this.toggleModalSignUp}>
                                     <i className="fa fa-user-plus " /> SignUp
                                 </Button>
                             </span>
@@ -114,9 +197,9 @@ class Header extends Component {
                     <ModalBody>
                         <Form onSubmit={this.handleLogin}>
                             <FormGroup>
-                                <Label htmlFor="username">Username</Label>
-                                <Input type="text" id="username" name="username"
-                                    innerRef={input => this.username = input} />
+                                <Label htmlFor="userName">Username</Label>
+                                <Input type="text" id="userName" name="userName"
+                                    innerRef={input => this.userName = input} />
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="password">Password</Label>
@@ -131,6 +214,57 @@ class Header extends Component {
                                 </Label>
                             </FormGroup>
                             <Button type="submit" value="submit" color="primary">Login</Button>
+                        </Form>
+                    </ModalBody>
+                </Modal>
+                <Modal isOpen={this.state.isModalOpenSignUp} toggle={this.toggleModalSignUp}>
+                    <ModalHeader toggle={this.toggleModalSignUp}>SignUp</ModalHeader>
+                    <ModalBody>
+                        <Form onSubmit={this.handleSubmit}>
+                        <FormGroup>
+                                <Label htmlFor="firstName">FirstName</Label>
+                                <Input type="text" id="firstName" name="firstName"
+                                   value={this.state.firstName}
+                                    invalid={errors.firstName}
+                                    onBlur={this.handleBlur("firstName")}
+                                    onChange={this.handleInputChange} />
+                             <FormFeedback>{errors.firstName}</FormFeedback>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="lastName">LastName</Label>
+                                <Input type="text" id="lastName" name="lastName"
+                                      value={this.state.lastName}
+                                    invalid={errors.lastName}
+                                    onBlur={this.handleBlur("lastName")}
+                                    onChange={this.handleInputChange}   />
+                                    <FormFeedback>{errors.lastName}</FormFeedback>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="email">Email</Label>
+                                <Input type="text" id="email" name="email"
+                                     value={this.state.email}
+                                    invalid={errors.email}
+                                    onBlur={this.handleBlur("email")} 
+                                    onChange={this.handleInputChange} />
+                                    <FormFeedback>{errors.email}</FormFeedback>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="userName">Username</Label>
+                                <Input type="text" id="userName" name="userName"
+                                       value={this.state.userName}
+                                    invalid={errors.userName}
+                                    onBlur={this.handleBlur("userName")}
+                                    onChange={this.handleInputChange} />
+                                    <FormFeedback>{errors.userName}</FormFeedback>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="password">Password</Label>
+                                <Input type="password" id="password" name="password"
+                                    value={this.state.password}
+                                    onChange={this.handleInputChange}/>
+                            </FormGroup>
+                           
+                            <Button type="submit" value="submit" color="primary">SignUp</Button>
                         </Form>
                     </ModalBody>
                 </Modal>

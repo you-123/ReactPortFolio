@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 function Menu(props) {
-    const  CatgoryFashion= props.Item.filter(item=>item.catgory==="fashion");
-    const  CatgoryTechnology= props.Item.filter(item=>item.catgory==="technology");
-    const  CatgoryArt= props.Item.filter(item=>item.catgory==="art");
+    const  CatgoryFashion= props.Item.filter(item=>item.category==="fashion");
+    const  CatgoryTechnology= props.Item.filter(item=>item.category==="technology");
+    const  CatgoryArt= props.Item.filter(item=>item.category==="art");
     const Fashion=CatgoryFashion.map(item => {
         return (
             <Link to={`/catalog/${item.id}`}> <li key={item.id}>{item.name}</li> </Link>    
